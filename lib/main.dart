@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'bloc/cubit/change_color_cubit.dart';
 import 'ui/page/home_screen.dart';
 
 void main() {
@@ -11,7 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      title: "Learn Flutter Bloc",
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: BlocProvider(
+        create: (BuildContext context) => ChangeColorCubit(),
+        child: HomeScreen(),
+      ),
     );
   }
 }
