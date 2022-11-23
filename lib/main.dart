@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Learn Flutter Bloc ",
+      title: "Learn Flutter Bloc",
       theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider(
         create: (BuildContext context) => ChangeColorCubit(),
