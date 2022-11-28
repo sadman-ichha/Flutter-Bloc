@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'bloc/cubit/change_color_cubit.dart';
+import 'bloc/color_cubit/change_color_cubit.dart';
 import 'ui/page/home_screen.dart';
 
 void main() {
