@@ -10,8 +10,3 @@ class BodyColorChange extends ChangeColorState {
 
   BodyColorChange({this.colors});
 }
-
-class ChangeColorContainer extends ChangeColorState {
-  final Color? col;
-  ChangeColorContainer({this.col});
-}
