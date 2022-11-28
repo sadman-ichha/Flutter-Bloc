@@ -6,7 +6,7 @@ abstract class ChangeColorState {}
 class ChangeColorInitial extends ChangeColorState {}
 
 class AppBarColorChange extends ChangeColorState {
-  final Color? color;
+  final Color? colors;
 
-  AppBarColorChange({this.color});
+  AppBarColorChange({this.colors});
 }

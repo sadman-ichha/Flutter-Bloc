@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
           if (state is! AppBarColorChange) {
             return Center(child: CircularProgressIndicator());
           }
-          final colorData = (state as AppBarColorChange).color;
+          final colorData = AppBarColorChange().colors;
           return Container(
             height: MediaQuery.of(context).size.height,
             color: colorData,

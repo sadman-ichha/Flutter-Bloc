@@ -8,6 +8,6 @@ class ChangeColorCubit extends Cubit<ChangeColorState> {
   ChangeColorCubit() : super(ChangeColorInitial());
 
   void colorChange(Color? color) {
-    emit(AppBarColorChange(color: color));
+    emit(AppBarColorChange(colors: color));
   }
 }
