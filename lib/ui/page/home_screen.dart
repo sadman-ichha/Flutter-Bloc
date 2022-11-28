@@ -30,13 +30,6 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 10,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            BlocProvider.of<ChangeColorCubit>(context)
-                .colorChange(Colors.purpleAccent);
-          },
-          child: Icon(Icons.change_circle),
-        ),
         body: BlocBuilder<ChangeColorCubit, ChangeColorState>(
           builder: (context, state) {
             if (state is! BodyColorChange) {
@@ -60,6 +53,13 @@ class HomeScreen extends StatelessWidget {
               ),
             );
           },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            BlocProvider.of<ChangeColorCubit>(context)
+                .colorChange(Colors.purpleAccent);
+          },
+          child: Icon(Icons.change_circle),
         ),
       ),
     );
