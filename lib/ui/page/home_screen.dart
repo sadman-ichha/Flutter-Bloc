@@ -34,7 +34,6 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<ChangeColorCubit>(context)
                 .colorChange(Colors.purpleAccent);
-            
           },
           child: Icon(Icons.change_circle),
         ),
