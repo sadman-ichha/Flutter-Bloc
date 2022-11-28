@@ -52,6 +52,9 @@ class HomeScreen extends StatelessWidget {
                     height: 100.0,
                     width: MediaQuery.of(context).size.width,
                     color: Colors.greenAccent,
+                    child: Center(
+                        child: Text("Change Text Cubit",
+                            style: TextStyle(fontSize: 20.0))),
                   ),
                 ],
               ),
