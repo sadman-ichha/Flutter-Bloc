@@ -45,21 +45,27 @@ class HomeScreen extends StatelessWidget {
                   BlocConsumer<TextChangeCubit, TextChangeState>(
                     listener: (context, state) {
                       // TODO: implement listener
+                      if (state is TextChange) {
+                        print("object");
+                      }
                     },
                     builder: (context, state) {
-                      if (state is TextChange) {
+                      if (state is !TextChange) {
                         Container(
                           height: 100.0,
                           width: MediaQuery.of(context).size.width,
                           color: Colors.black87,
+                          child: Text("State not emit",
+                              style: TextStyle(fontSize: 20)),
                         );
                       }
+                      final textdata = (state as TextChange).text;
                       return Container(
                         height: 100.0,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.greenAccent,
                         child: Center(
-                            child: Text("Change Text Cubit",
+                            child: Text(textdata!,
                                 style: TextStyle(fontSize: 20.0))),
                       );
                     },
@@ -73,8 +79,8 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<ChangeColorCubit>(context)
                 .colorChange(Colors.purpleAccent);
-            BlocProvider.of<TextChangeCubit>(context)
-                .changeText("This is Textssss");
+            // BlocProvider.of<TextChangeCubit>(context)
+            //     .changeText("This is Textssss");
           },
           child: Icon(Icons.change_circle),
         ),

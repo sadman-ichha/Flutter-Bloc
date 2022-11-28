@@ -1,3 +1,4 @@
+import 'package:f_bloc_practice/bloc/text_cubit/cubit/text_change_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/color_cubit/change_color_cubit.dart';
@@ -16,10 +17,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Learn Flutter Bloc ",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: BlocProvider(
-        create: (BuildContext context) => ChangeColorCubit(),
-        child: HomeScreen(),
-      ),
+      home: MultiBlocProvider(providers: [
+        BlocProvider<ChangeColorCubit>(
+          create: (BuildContext context) => ChangeColorCubit(),
+        ),
+        BlocProvider<TextChangeCubit>(
+          create: ((context) => TextChangeCubit()),
+        ),
+      ], child: MyApp()),
     );
   }
 }
