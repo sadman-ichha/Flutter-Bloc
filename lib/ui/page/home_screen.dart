@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Bloc",
+          title: Text("Flutter Bloc ",
               style: Theme.of(context).textTheme.headline6),
           centerTitle: true,
           backgroundColor: Colors.white,
