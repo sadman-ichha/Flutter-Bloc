@@ -13,13 +13,13 @@ class HomeScreen extends StatelessWidget {
       listener: (context, state) {
         // TODO: implement listener
         if (state is BodyColorChange) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(
-                behavior: SnackBarBehavior.floating,
-                backgroundColor: Colors.green,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20) ),
-                  duration: Duration(milliseconds: 2000),
-                content: Text("Listing",textAlign: TextAlign.center)));
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.green,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              duration: Duration(milliseconds: 2000),
+              content: Text("Listing", textAlign: TextAlign.center)));
         }
       },
       child: Scaffold(
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             BlocProvider.of<ChangeColorCubit>(context)
-                .colorChange(Colors.purple);
+                .colorChange(Colors.purpleAccent);
           },
           child: Icon(Icons.change_circle),
         ),
