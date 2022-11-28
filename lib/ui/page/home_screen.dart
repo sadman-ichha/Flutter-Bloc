@@ -46,6 +46,14 @@ class HomeScreen extends StatelessWidget {
             return Container(
               height: MediaQuery.of(context).size.height,
               color: colorData,
+              child: Column(
+                children: [
+                  Container(
+                    height: 100.0,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                ],
+              ),
             );
           },
         ),
