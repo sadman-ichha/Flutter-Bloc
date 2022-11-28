@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20) ),
                   duration: Duration(milliseconds: 2000),
-                content: Text("Listing")));
+                content: Text("Listing",textAlign: TextAlign.center)));
         }
       },
       child: Scaffold(
