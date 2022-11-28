@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:f_bloc_practice/bloc/text_cubit/cubit/text_change_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/color_cubit/change_color_cubit.dart';
@@ -31,59 +30,24 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 10,
         ),
-        body: BlocBuilder<ChangeColorCubit, ChangeColorState>(
-          builder: (context, state) {
-            if (state is! BodyColorChange) {
-              return Center(child: CircularProgressIndicator());
-            }
-            final colorData = (state as BodyColorChange).colors;
-            return Container(
-              height: MediaQuery.of(context).size.height,
-              color: colorData,
-              child: Column(
-                children: [
-                  BlocConsumer<TextChangeCubit, TextChangeState>(
-                    listener: (context, state) {
-                      // TODO: implement listener
-                      if (state is TextChange) {
-                        print("object");
-                      }
-                    },
-                    builder: (context, state) {
-                      if (state is !TextChange) {
-                        Container(
-                          height: 100.0,
-                          width: MediaQuery.of(context).size.width,
-                          color: Colors.black87,
-                          child: Text("State not emit",
-                              style: TextStyle(fontSize: 20)),
-                        );
-                      }
-                      final textdata = (state as TextChange).text;
-                      return Container(
-                        height: 100.0,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.greenAccent,
-                        child: Center(
-                            child: Text(textdata!,
-                                style: TextStyle(fontSize: 20.0))),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             BlocProvider.of<ChangeColorCubit>(context)
                 .colorChange(Colors.purpleAccent);
-            // BlocProvider.of<TextChangeCubit>(context)
-            //     .changeText("This is Textssss");
           },
           child: Icon(Icons.change_circle),
         ),
+        body: BlocBuilder<ChangeColorCubit, ChangeColorState>(
+            builder: (context, state) {
+          if (state is! BodyColorChange) {
+            return Center(child: CircularProgressIndicator());
+          }
+          final colorData = (state as BodyColorChange).colors;
+          return Container(
+            height: MediaQuery.of(context).size.height,
+            color: colorData,
+          );
+        }),
       ),
     );
   }
