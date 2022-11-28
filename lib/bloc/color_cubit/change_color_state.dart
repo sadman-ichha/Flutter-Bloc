@@ -7,6 +7,5 @@ class ChangeColorInitial extends ChangeColorState {}
 
 class BodyColorChange extends ChangeColorState {
   final Color? colors;
-
   BodyColorChange({this.colors});
 }

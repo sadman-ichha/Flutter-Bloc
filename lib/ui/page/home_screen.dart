@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:f_bloc_practice/bloc/text_cubit/cubit/text_change_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/color_cubit/change_color_cubit.dart';
@@ -24,7 +25,7 @@ class HomeScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Bloc ",
+          title: Text("Flutter Bloc",
               style: Theme.of(context).textTheme.headline6),
           centerTitle: true,
           backgroundColor: Colors.white,
@@ -41,13 +42,27 @@ class HomeScreen extends StatelessWidget {
               color: colorData,
               child: Column(
                 children: [
-                  Container(
-                    height: 100.0,
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.greenAccent,
-                    child: Center(
-                        child: Text("Change Text Cubit",
-                            style: TextStyle(fontSize: 20.0))),
+                  BlocConsumer<TextChangeCubit, TextChangeState>(
+                    listener: (context, state) {
+                      // TODO: implement listener
+                    },
+                    builder: (context, state) {
+                      if (state is TextChange) {
+                        Container(
+                          height: 100.0,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.black87,
+                        );
+                      }
+                      return Container(
+                        height: 100.0,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.greenAccent,
+                        child: Center(
+                            child: Text("Change Text Cubit",
+                                style: TextStyle(fontSize: 20.0))),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -58,6 +73,8 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             BlocProvider.of<ChangeColorCubit>(context)
                 .colorChange(Colors.purpleAccent);
+            BlocProvider.of<TextChangeCubit>(context)
+                .changeText("This is Textssss");
           },
           child: Icon(Icons.change_circle),
         ),
