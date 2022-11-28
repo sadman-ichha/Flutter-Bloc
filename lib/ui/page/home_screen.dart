@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          BlocProvider.of<ChangeColorCubit>(context).colorChange(Colors.blue);
+          BlocProvider.of<ChangeColorCubit>(context).colorChange(Colors.purple);
         },
         child: Icon(Icons.change_circle),
       ),
