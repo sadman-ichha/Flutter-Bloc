@@ -8,4 +8,8 @@ class ChangeColorCubit extends Cubit<ChangeColorState> {
   void colorChange(Color? color) {
     emit(BodyColorChange(colors: color));
   }
+
+  void containerColorChnage(Color? containercolor) {
+    emit(ChangeColorContainer(col: containercolor));
+  }
 }
