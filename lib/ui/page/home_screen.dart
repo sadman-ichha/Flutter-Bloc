@@ -45,25 +45,28 @@ class HomeScreen extends StatelessWidget {
                   BlocConsumer<TextChangeCubit, TextChangeState>(
                     listener: (context, state) {
                       // TODO: implement listener
-                      if (state is TextChangeCubit) {
-                        print("object");
+                      if (state is TextChange) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("Consumer With Listen")));
                       }
                     },
                     builder: (context, state) {
-                      if (state is! TextChangeCubit) {
+                      if (state is! TextChange) {
                         Container(
-                          height: 100.0,
-                          width: MediaQuery.of(context).size.width,
-                          color: Colors.blueAccent,
-                        );
+                            height: 100.0,
+                            width: MediaQuery.of(context).size.width,
+                            color: Colors.blueAccent,
+                            child: Text('hh'));
                       }
+                      final textData = (state as TextChange).text;
+
                       return Container(
                         height: 100.0,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.greenAccent,
                         child: Center(
                             child: Text(
-                          "This is Text",
+                          textData.toString(),
                           style: TextStyle(fontSize: 18.0),
                         )),
                       );
@@ -77,7 +80,8 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               BlocProvider.of<ChangeColorCubit>(context)
                   .colorChange(Colors.purpleAccent);
-              BlocProvider.of<TextChangeCubit>(context).changeText("This");
+              BlocProvider.of<TextChangeCubit>(context)
+                  .changeText("This is Text");
             },
             child: Icon(Icons.change_circle),
           ),
