@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:f_bloc_practice/bloc/text_cubit/cubit/text_change_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/color_cubit/change_color_cubit.dart';
@@ -39,12 +40,44 @@ class HomeScreen extends StatelessWidget {
             return Container(
               height: MediaQuery.of(context).size.height,
               color: colorData,
+              child: Column(
+                children: [
+                  BlocConsumer<TextChangeCubit, TextChangeState>(
+                    listener: (context, state) {
+                      // TODO: implement listener
+                      if (state is TextChangeCubit) {
+                        print("object");
+                      }
+                    },
+                    builder: (context, state) {
+                      if (state is! TextChangeCubit) {
+                        Container(
+                          height: 100.0,
+                          width: MediaQuery.of(context).size.width,
+                          color: Colors.blueAccent,
+                        );
+                      }
+                      return Container(
+                        height: 100.0,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.greenAccent,
+                        child: Center(
+                            child: Text(
+                          "This is Text",
+                          style: TextStyle(fontSize: 18.0),
+                        )),
+                      );
+                    },
+                  ),
+                ],
+              ),
             );
           }),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               BlocProvider.of<ChangeColorCubit>(context)
                   .colorChange(Colors.purpleAccent);
+              BlocProvider.of<TextChangeCubit>(context).changeText("This");
             },
             child: Icon(Icons.change_circle),
           ),
