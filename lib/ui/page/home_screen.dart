@@ -12,21 +12,23 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<ChangeColorCubit, ChangeColorState>(
         listener: (context, state) {
-          // TODO: implement listener
           if (state is BodyColorChange) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
                 behavior: SnackBarBehavior.floating,
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 duration: Duration(milliseconds: 2000),
-                content: Text("Listing", textAlign: TextAlign.center)));
+                content: Text("Listing", textAlign: TextAlign.center),
+              ),
+            );
           }
         },
         child: Scaffold(
           appBar: AppBar(
             title: Text("Flutter Bloc",
-                style: Theme.of(context).textTheme.headline6),
+                style: Theme.of(context).textTheme.titleLarge),
             centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 10,
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
             if (state is! BodyColorChange) {
               return Center(child: CircularProgressIndicator());
             }
-            final colorData = (state as BodyColorChange).colors;
+            final colorData = (state).colors;
             return Container(
               height: MediaQuery.of(context).size.height,
               color: colorData,
@@ -44,10 +46,12 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   BlocConsumer<TextChangeCubit, TextChangeState>(
                     listener: (context, state) {
-                      // TODO: implement listener
                       if (state is TextChange) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Consumer With Listen")));
+                          SnackBar(
+                            content: Text("Consumer With Listen"),
+                          ),
+                        );
                       }
                     },
                     builder: (context, state) {

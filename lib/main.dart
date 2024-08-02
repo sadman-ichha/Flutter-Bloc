@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/color_cubit/change_color_cubit.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => ChangeColorCubit()),
             BlocProvider(create: (context) => TextChangeCubit()),
           ],
-          child: HomeScreen(),
+          child:const HomeScreen(),
         ));
   }
 }
