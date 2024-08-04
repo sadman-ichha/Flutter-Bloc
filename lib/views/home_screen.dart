@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               children: [
-                 TextField(
+                TextField(
                   controller: controller,
                 ),
                 const SizedBox(height: 10.0),
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () {
                       BlocProvider.of<TodoCubit>(context)
                           .todoAdd(controller.text);
-                            controller.clear();
+                      controller.clear();
                     },
                     child: const Text("Added")),
                 const SizedBox(height: 10.0),
@@ -37,7 +37,8 @@ class HomeScreen extends StatelessWidget {
                       return Card(
                         elevation: 3,
                         child: ListTile(
-                          title: Text(state.todos[index].toString()),
+                          title: Text(
+                              "${index + 1}.${state.todos[index].toString()}"),
                           trailing: IconButton(
                               onPressed: () {
                                 BlocProvider.of<TodoCubit>(context)
