@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 part 'todo_state.dart';
 
 
 class TodoCubit extends Cubit<TodoInitial> {
-  
   TodoCubit() : super(TodoInitial(todos: Todo.todoData));
-
+  final TextEditingController controller = TextEditingController();
   void todoRemove(int index) {
     final List<String> todoList = state.todos;
     Todo.todoData.removeAt(index);

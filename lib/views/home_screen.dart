@@ -7,7 +7,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Todos"),
@@ -19,14 +18,14 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 TextField(
-                  controller: controller,
+                  controller: BlocProvider.of<TodoCubit>(context).controller,
                 ),
                 const SizedBox(height: 10.0),
                 ElevatedButton(
                     onPressed: () {
-                      BlocProvider.of<TodoCubit>(context)
-                          .todoAdd(controller.text);
-                      controller.clear();
+                      BlocProvider.of<TodoCubit>(context).todoAdd(
+                          BlocProvider.of<TodoCubit>(context).controller.text);
+                      BlocProvider.of<TodoCubit>(context).controller.clear();
                     },
                     child: const Text("Added")),
                 const SizedBox(height: 10.0),
