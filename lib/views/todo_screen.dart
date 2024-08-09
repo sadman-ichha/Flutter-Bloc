@@ -1,9 +1,9 @@
-import 'package:f_bloc_practice/cubit/todo_cubit.dart';
+import 'package:f_bloc_practice/cubit/todo/todo_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class TodoScreen extends StatelessWidget {
+  const TodoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
