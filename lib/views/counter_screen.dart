@@ -9,30 +9,30 @@ class CounterScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Increment/Decrement Counter'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'Current Value:',
               style: TextStyle(fontSize: 20),
             ),
             Text(
               '_counter',
-              style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
                   onPressed: null,
-                  child: const Text('Decrement'),
+                  child: Text('Decrement'),
                 ),
-                const SizedBox(width: 20),
+                SizedBox(width: 20),
                 ElevatedButton(
                   onPressed: null,
-                  child: const Text('Increment'),
+                  child: Text('Increment'),
                 ),
               ],
             ),
