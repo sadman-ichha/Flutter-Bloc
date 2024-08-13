@@ -14,7 +14,7 @@ class CounterScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Current Value:',
+              'Current Value: ',
               style: TextStyle(fontSize: 20),
             ),
             Text(
